@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-30T14:28:37.144711" rpa="true" schemaversion="5">
+<suite id="s1" name="Frappe Switchee Automation" source="C:\Frappe_Switchee_Automation">
+<suite id="s1-s1" name="Tests" source="C:\Frappe_Switchee_Automation\Tests">
+<suite id="s1-s1-s1" name="Switchee testusite" source="C:\Frappe_Switchee_Automation\Tests\Switchee_testusite.robot">
+<test id="s1-s1-s1-t1" name="Login to Website" line="10">
+<kw name="Login To Switchee Website" owner="Switchee_keywords">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-30T14:28:37.373121" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-30T14:28:37.373121" level="INFO">Opening browser 'Chrome' to base url 'https://ucl-uat.switchmyloan.in/app'.</msg>
+<msg time="2024-05-30T14:28:38.040531" level="WARN">The chromedriver version (122.0.6261.111) detected in PATH at C:\Frappe_Switchee_Automation\chromedriver.exe might not be compatible with the detected chrome version (125.0.6422.112); currently, chromedriver 125.0.6422.78 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2024-05-30T14:28:41.309199" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2024-05-30T14:28:41.309199" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 122
+Current browser version is 125.0.6422.112 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF65A5FAD32+56930]
+	(No symbol) [0x00007FF65A56F632]
+	(No symbol) [0x00007FF65A4242E5]
+	(No symbol) [0x00007FF65A45A432]
+	(No symbol) [0x00007FF65A45983F]
+	(No symbol) [0x00007FF65A45341E]
+	(No symbol) [0x00007FF65A4505D4]
+	(No symbol) [0x00007FF65A49595F]
+	(No symbol) [0x00007FF65A4954C0]
+	(No symbol) [0x00007FF65A48BA43]
+	(No symbol) [0x00007FF65A45D438]
+	(No symbol) [0x00007FF65A45E4D1]
+	GetHandleVerifier [0x00007FF65A976ABD+3709933]
+	GetHandleVerifier [0x00007FF65A9CFFFD+4075821]
+	GetHandleVerifier [0x00007FF65A9C818F+4043455]
+	GetHandleVerifier [0x00007FF65A699766+706710]
+	(No symbol) [0x00007FF65A57B90F]
+	(No symbol) [0x00007FF65A576AF4]
+	(No symbol) [0x00007FF65A576C4C]
+	(No symbol) [0x00007FF65A566904]
+	BaseThreadInitThunk [0x00007FFD7EDE257D+29]
+	RtlUserThreadStart [0x00007FFD801AAA48+40]
+</msg>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2024-05-30T14:28:37.373121" elapsed="4.004816">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 122
+Current browser version is 125.0.6422.112 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF65A5FAD32+56930]
+	(No symbol) [0x00007FF65A56F632]
+	(No symbol) [0x00007FF65A4242E5]
+	(No symbol) [0x00007FF65A45A432]
+	(No symbol) [0x00007FF65A45983F]
+	(No symbol) [0x00007FF65A45341E]
+	(No symbol) [0x00007FF65A4505D4]
+	(No symbol) [0x00007FF65A49595F]
+	(No symbol) [0x00007FF65A4954C0]
+	(No symbol) [0x00007FF65A48BA43]
+	(No symbol) [0x00007FF65A45D438]
+	(No symbol) [0x00007FF65A45E4D1]
+	GetHandleVerifier [0x00007FF65A976ABD+3709933]
+	GetHandleVerifier [0x00007FF65A9CFFFD+4075821]
+	GetHandleVerifier [0x00007FF65A9C818F+4043455]
+	GetHandleVerifier [0x00007FF65A699766+706710]
+	(No symbol) [0x00007FF65A57B90F]
+	(No symbol) [0x00007FF65A576AF4]
+	(No symbol) [0x00007FF65A576C4C]
+	(No symbol) [0x00007FF65A566904]
+	BaseThreadInitThunk [0x00007FFD7EDE257D+29]
+	RtlUserThreadStart [0x00007FFD801AAA48+40]
+</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2024-05-30T14:28:41.377937" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${username}</arg>
+<arg>administrator</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T14:28:41.377937" elapsed="0.000000"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>${password}</arg>
+<arg>Admin@#4321</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T14:28:41.377937" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T14:28:41.377937" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-05-30T14:28:37.373121" elapsed="4.004816">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 122
+Current browser version is 125.0.6422.112 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF65A5FAD32+56930]
+	(No symbol) [0x00007FF65A56F632]
+	(No symbol) [0x00007FF65A4242E5]
+	(No symbol) [0x00007FF65A45A432]
+	(No symbol) [0x00007FF65A45983F]
+	(No symbol) [0x00007FF65A45341E]
+	(No symbol) [0x00007FF65A4505D4]
+	(No symbol) [0x00007FF65A49595F]
+	(No symbol) [0x00007FF65A4954C0]
+	(No symbol) [0x00007FF65A48BA43]
+	(No symbol) [0x00007FF65A45D438]
+	(No symbol) [0x00007FF65A45E4D1]
+	GetHandleVerifier [0x00007FF65A976ABD+3709933]
+	GetHandleVerifier [0x00007FF65A9CFFFD+4075821]
+	GetHandleVerifier [0x00007FF65A9C818F+4043455]
+	GetHandleVerifier [0x00007FF65A699766+706710]
+	(No symbol) [0x00007FF65A57B90F]
+	(No symbol) [0x00007FF65A576AF4]
+	(No symbol) [0x00007FF65A576C4C]
+	(No symbol) [0x00007FF65A566904]
+	BaseThreadInitThunk [0x00007FFD7EDE257D+29]
+	RtlUserThreadStart [0x00007FFD801AAA48+40]
+</status>
+</kw>
+<kw name="Logout from Switchee" owner="Switchee_keywords">
+<status status="NOT RUN" start="2024-05-30T14:28:41.377937" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-05-30T14:28:37.373121" elapsed="4.004816">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 122
+Current browser version is 125.0.6422.112 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF65A5FAD32+56930]
+	(No symbol) [0x00007FF65A56F632]
+	(No symbol) [0x00007FF65A4242E5]
+	(No symbol) [0x00007FF65A45A432]
+	(No symbol) [0x00007FF65A45983F]
+	(No symbol) [0x00007FF65A45341E]
+	(No symbol) [0x00007FF65A4505D4]
+	(No symbol) [0x00007FF65A49595F]
+	(No symbol) [0x00007FF65A4954C0]
+	(No symbol) [0x00007FF65A48BA43]
+	(No symbol) [0x00007FF65A45D438]
+	(No symbol) [0x00007FF65A45E4D1]
+	GetHandleVerifier [0x00007FF65A976ABD+3709933]
+	GetHandleVerifier [0x00007FF65A9CFFFD+4075821]
+	GetHandleVerifier [0x00007FF65A9C818F+4043455]
+	GetHandleVerifier [0x00007FF65A699766+706710]
+	(No symbol) [0x00007FF65A57B90F]
+	(No symbol) [0x00007FF65A576AF4]
+	(No symbol) [0x00007FF65A576C4C]
+	(No symbol) [0x00007FF65A566904]
+	BaseThreadInitThunk [0x00007FFD7EDE257D+29]
+	RtlUserThreadStart [0x00007FFD801AAA48+40]
+</status>
+</test>
+<status status="FAIL" start="2024-05-30T14:28:37.182981" elapsed="4.194956"/>
+</suite>
+<status status="FAIL" start="2024-05-30T14:28:37.182046" elapsed="4.195891"/>
+</suite>
+<status status="FAIL" start="2024-05-30T14:28:37.148737" elapsed="4.243805"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Frappe Switchee Automation">Frappe Switchee Automation</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tests">Frappe Switchee Automation.Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Switchee testusite">Frappe Switchee Automation.Tests.Switchee testusite</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-30T14:28:38.040531" level="WARN">The chromedriver version (122.0.6261.111) detected in PATH at C:\Frappe_Switchee_Automation\chromedriver.exe might not be compatible with the detected chrome version (125.0.6422.112); currently, chromedriver 125.0.6422.78 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>

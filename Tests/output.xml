@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-30T15:20:23.631558" rpa="true" schemaversion="5">
+<suite id="s1" name="Switchee testusite" source="C:\Frappe_Switchee_Automation\Tests\Switchee_testusite.robot">
+<test id="s1-t1" name="Login to Website" line="11">
+<kw name="Login To Switchee Website" owner="Switchee_keywords">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-30T15:20:23.850258" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-30T15:20:23.850258" level="INFO">Opening browser 'Chrome' to base url 'https://ucl-uat.switchmyloan.in/'.</msg>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-30T15:20:23.850258" elapsed="4.003201"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-30T15:20:27.853459" elapsed="1.044603"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-30T15:20:28.899609" level="INFO">Typing text 'administrator' into text field '//input[@id='login_email']'.</msg>
+<arg>${username}</arg>
+<arg>administrator</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-30T15:20:28.898593" elapsed="3.173222"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-05-30T15:20:32.071815" level="INFO">Typing password into text field '//input[@id='login_password']'.</msg>
+<msg time="2024-05-30T15:20:34.158115" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${password}</arg>
+<arg>Admin@#4321</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-30T15:20:32.071815" elapsed="3.201946"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-30T15:20:35.273761" level="INFO">Clicking button '//button[normalize-space()='Login']'.</msg>
+<arg>${login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-30T15:20:35.273761" elapsed="5.116156"/>
+</kw>
+<status status="PASS" start="2024-05-30T15:20:23.850258" elapsed="16.539659"/>
+</kw>
+<kw name="Users List Creation" owner="Switchee_keywords">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-30T15:20:40.389917" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${user_list}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-30T15:20:40.389917" elapsed="4.973810"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-30T15:20:45.363727" level="INFO">Clicking button '//span[@title='User']'.</msg>
+<msg time="2024-05-30T15:20:50.553574" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-30T15:20:50.553574" level="FAIL">Button with locator '//span[@title='User']' not found.</msg>
+<arg>${user_list}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-30T15:20:45.363727" elapsed="5.192355">Button with locator '//span[@title='User']' not found.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${add_user}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T15:20:50.558577" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${user_email}</arg>
+<arg>jayant@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T15:20:50.558577" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${user_firstname}</arg>
+<arg>Jay</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T15:20:50.558577" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${user_save}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-30T15:20:50.558577" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-05-30T15:20:40.389917" elapsed="10.168660">Button with locator '//span[@title='User']' not found.</status>
+</kw>
+<kw name="Logout from Switchee" owner="Switchee_keywords">
+<status status="NOT RUN" start="2024-05-30T15:20:50.558577" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-05-30T15:20:23.850258" elapsed="26.708319">Button with locator '//span[@title='User']' not found.</status>
+</test>
+<status status="FAIL" start="2024-05-30T15:20:23.631558" elapsed="26.930575"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Switchee testusite">Switchee testusite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
