@@ -6,6 +6,7 @@ Library         RPA.JSON
 Library         RPA.RobotLogListener
 Library         XML
 Library         RPA.HTTP
+Library         Process
 
 Resource    ..//Resources//Switchee_objects.robot
 Variables    ..//Environment/env_config.yaml
@@ -78,18 +79,49 @@ Partner Creation
     Click Element    //div[@data-fieldname='partner_kyc']//input[@role='combobox']
     Click Element    //div[@data-fieldname='partner_kyc']//a[@title='Open Link']//*[name()='svg']
     Click Element    //a[@id='partner-kyc-pan_details_tab-tab']
-    Upload PAN Card
 
 Upload PAN Card
     Wait Until Element Is Visible    //button[@data-fieldname='pan_card_file']
     Click Element    //button[@data-fieldname='pan_card_file']
     Log    ${CURDIR}
-    ${image_path}    Set Variable    ${CURDIR}/../Resources/Images/PANcard.png
-    ${image_path}    Normalize Path    ${image_path}
-
-    Choose File    //button[@fdprocessedid='o0untz']   file_path=${image_path}
+    ${image_path}    Set Variable       ${CURDIR}\\Images\\PANcard.png
+    ${upload_script}    Set Variable    ${CURDIR}/../utilities/upload_file.py
+    ${PYTHON}    Set Variable    python
+    Click Element    //div[@class='modal-body ui-front']//button[1]//*[name()='svg']//*[name()='circle' and contains(@cx,'15')]
+    Run Process    ${PYTHON}    ${upload_script}    ${image_path}    
     Click Element    //button[@type='button'][normalize-space()='Upload']
 
+Edit PAN Details
+    Input Text    //div[@data-fieldname='pan_number']//input[@type='text']    CFCPG6559P
+    Input Text    //div[@data-fieldname='pan_full_name']//input[@type='text']    JAYANTA BADAL GHOSH
+    Input Text    //div[@data-fieldname='pan_father_name']//input[@type='text']    BADAL KANGALICHARAN GHOSH
+    Input Text    //div[@data-fieldname='pan_gender']//input[@type='text']    M
+    # Input Text    //input[@data-fieldtype='Date']    07-11-1998
+    # Input Text    //input[@data-fieldtype='Date']    07-11-1998
+    # Input Text    //div[@data-fieldname='pan_phone_number']//input[@type='text']    8879044053
+    # Click Element    //button[@data-label='Save']   
+
+
+
+Input Date By XPath
+    [Arguments]    ${date_locator}    ${date_to_enter}
+    TRY
+        Sleep    5s
+        Enter Text Finding Element By XPath    ${date_locator}    ${date_to_enter}
+    EXCEPT
+        Log    Failed to select date ${date_to_enter} to ${date_locator} for selected Input Date
+    END
+
+
+
+
+# Select Calendar Date
+#     [Arguments]    &{event_date_to_enter}
+#     Log To Console    event_date_to_enter &{event_date_to_enter}
+#     Log To Console    ${event_date_to_enter}[monthyear]
+#     Log To Console    ${event_date_to_enter}[day]
+#     ${attribute_value}=    Get Text    ${calendar_month_yyyy_locator}
+#     Log    Month Year ${attribute_value}
 
 
 

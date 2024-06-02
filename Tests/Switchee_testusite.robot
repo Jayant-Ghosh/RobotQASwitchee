@@ -1,6 +1,6 @@
 *** Settings ***
 
-Library    SeleniumLibrary
+Library    SeleniumLibrary    auto_capture=False
 
 Resource    ..//Resources//Switchee_objects.robot
 Resource    ..//Resources//Switchee_keywords.robot
@@ -16,6 +16,8 @@ Login to Website
     Go Back
     Go Back
     Partner Creation
+    Upload PAN Card
+    Edit PAN Details
     Logout from Switchee 
 
 Close the Website
