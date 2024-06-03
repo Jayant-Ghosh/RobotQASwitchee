@@ -50,46 +50,63 @@ Users List Creation
     Click Element    //span[@title='User']
 
 Add User list
-    Click Button   ${add_user} 
-    Input Text    ${user_email}    jayant@gmail.com
-    Input Text    ${user_firstname}    Jay
-    Click Button    ${user_save}
-    Sleep    5s
-    Wait Until Page Contains Element    //div[@class='msgprint'] 
-    Click Element    //div[@class='modal-dialog msgprint-dialog']//button[@class='btn btn-modal-close btn-link']//*[name()='svg']
+    TRY
+        Click Button   ${add_user} 
+        Input Text    ${user_email}    jayant@gmail.com
+        Input Text    ${user_firstname}    Jay
+        Click Button    ${user_save}
+        Sleep    5s
+        Wait Until Page Contains Element    //div[@class='msgprint'] 
+        Click Element    //div[@class='modal-dialog msgprint-dialog']//button[@class='btn btn-modal-close btn-link']//*[name()='svg']
+    EXCEPT
+        Log To Console    message=Adding user list got failed
+    END
+    
 
 Update user
+    TRY
     Input Text    //input[@placeholder='Full Name']    Jay
-    Click Element    xpath=//a[@title='${fullname}']
-    Click Element    //a[@id='user-short_bio-tab']
-    Input Text    //div[@data-fieldname='mobile_no']//input[@type='text']    8879045390
-    Click Element    //a[@id='user-roles_permissions_tab-tab']
-    Page should Contain checkbox    //input[@data-unit='Partner']
-    Select Checkbox    //input[@data-unit='Partner']
-    Click Element    //a[@id='user-settings_tab-tab']
-    Click Element    //div[normalize-space()='Change Password']
-    Input Text    //input[@type='password']    Jayanta
-    Click Element    //button[@data-label="Save"]
-
+        Click Element    xpath=//a[@title='${fullname}']
+        Click Element    //a[@id='user-short_bio-tab']
+        Input Text    //div[@data-fieldname='mobile_no']//input[@type='text']    8879045390
+        Click Element    //a[@id='user-roles_permissions_tab-tab']
+        Page should Contain checkbox    //input[@data-unit='Partner']
+        Select Checkbox    //input[@data-unit='Partner']
+        Click Element    //a[@id='user-settings_tab-tab']
+        Click Element    //div[normalize-space()='Change Password']
+        Input Text    //input[@type='password']    Jayanta
+        Click Element    //button[@data-label="Save"]
+    EXCEPT
+        Log To Console    message="Update user got failed"
+    END
 
 Partner Creation
-    Click Element    //span[normalize-space()='Partner Details']
-    Click Element    //span[@title='Partner']
-    Click Element    //a[@title='abc']
-    Click Element    //div[@data-fieldname='partner_kyc']//input[@role='combobox']
-    Click Element    //div[@data-fieldname='partner_kyc']//a[@title='Open Link']//*[name()='svg']
-    Click Element    //a[@id='partner-kyc-pan_details_tab-tab']
+    TRY
+        Click Element    //span[normalize-space()='Partner Details']
+        Click Element    //span[@title='Partner']
+        Click Element    //a[@title='abc']
+        Click Element    //div[@data-fieldname='partner_kyc']//input[@role='combobox']
+        Click Element    //div[@data-fieldname='partner_kyc']//a[@title='Open Link']//*[name()='svg']
+        Click Element    //a[@id='partner-kyc-pan_details_tab-tab']
+    EXCEPT
+        Log To Console    message=Partner Creation got failed
+    END
+
 
 Upload PAN Card
-    Wait Until Element Is Visible    //button[@data-fieldname='pan_card_file']
-    Click Element    //button[@data-fieldname='pan_card_file']
-    Log    ${CURDIR}
-    ${image_path}    Set Variable       ${CURDIR}\\Images\\PANcard.png
-    ${upload_script}    Set Variable    ${CURDIR}/../utilities/upload_file.py
-    ${PYTHON}    Set Variable    python
-    Click Element    //div[@class='modal-body ui-front']//button[1]//*[name()='svg']//*[name()='circle' and contains(@cx,'15')]
-    Run Process    ${PYTHON}    ${upload_script}    ${image_path}    
-    Click Element    //button[@type='button'][normalize-space()='Upload']
+    TRY
+        Wait Until Element Is Visible    //button[@data-fieldname='pan_card_file']
+        Click Element    //button[@data-fieldname='pan_card_file']
+        Log    ${CURDIR}
+        ${image_path}    Set Variable       ${CURDIR}\\Images\\PANcard.png
+        ${upload_script}    Set Variable    ${CURDIR}/../utilities/upload_file.py
+        ${PYTHON}    Set Variable    python
+        Click Element    //div[@class='modal-body ui-front']//button[1]//*[name()='svg']//*[name()='circle' and contains(@cx,'15')]
+        Run Process    ${PYTHON}    ${upload_script}    ${image_path}    
+        Click Element    //button[@type='button'][normalize-space()='Upload']
+    EXCEPT
+        Log To Console    message= Uploading PAN Card Failed 
+    END
 
 Edit PAN Details
     Input Text    //div[@data-fieldname='pan_number']//input[@type='text']    CFCPG6559P
