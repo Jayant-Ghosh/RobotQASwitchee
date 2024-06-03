@@ -1,15 +1,15 @@
 *** Settings ***
-Library         RPA.Robocorp.Vault
+# Library         RPA.Robocorp.Vault
 Library         String
 Library         OperatingSystem
-Library         RPA.JSON
-Library         RPA.RobotLogListener
+# Library         RPA.JSON
+# Library         RPA.RobotLogListener
 Library         XML
-Library         RPA.HTTP
+# Library         RPA.HTTP
 Library         Process
 
 Resource    ..//Resources//Switchee_objects.robot
-Variables    ..//Environment/env_config.yaml
+# Variables    ..//Environment/env_config.yaml
 
 
 *** Keywords ***

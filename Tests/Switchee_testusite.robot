@@ -1,6 +1,6 @@
 *** Settings ***
 
-Library    SeleniumLibrary    auto_capture=False
+Library    SeleniumLibrary    Screenshot On Failure=False
 
 Resource    ..//Resources//Switchee_objects.robot
 Resource    ..//Resources//Switchee_keywords.robot
