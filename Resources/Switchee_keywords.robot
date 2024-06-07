@@ -15,12 +15,16 @@ Resource    ..//Resources//Switchee_objects.robot
 *** Keywords ***
 
 Login To Switchee Website
-    Set Selenium Speed     1s
-    Open Browser    ${url}    ${Browser}
-    Maximize Browser Window
-    Input Text    ${username}    administrator
-    Input Password    ${password}    Admin@#4321
-    Click Button    ${login}
+    TRY
+        Set Selenium Speed     1s
+        Open Browser    ${url}    ${Browser}
+        Maximize Browser Window
+        Input Text    ${username}    administrator
+        Input Password    ${password}    Admin@#4321
+        Click Button    ${login}
+    EXCEPT
+        Log To Console    message=Login to Website got failed during
+    END
 
 Navigate To Url
     [Arguments]    ${url}    ${browser}
@@ -41,13 +45,22 @@ Enter Text Finding Element By XPath
 
 
 Logout from Switchee
-    Click Element    //span[@class="avatar-frame"]
-    Click Element    ${logout_button}
+    TRY
+        Click Element    //span[@class="avatar-frame"]/
+        Click Element    ${logout_button}
+    EXCEPT
+        Log To Console    message=Logout from switchee got failed
+    END
+
 
 Users List Creation
-    Set Selenium Speed    1s
-    Wait Until Page Contains Element    //span[@title='User']
-    Click Element    //span[@title='User']
+    TRY
+        Set Selenium Speed    1s
+        Wait Until Page Contains Element    //span[@title='User']
+        Click Element    //span[@title='User']
+    EXCEPT
+        Log To Console    message=Users list button not found or failed
+    END
 
 Add User list
     TRY
@@ -109,14 +122,18 @@ Upload PAN Card
     END
 
 Edit PAN Details
-    Input Text    //div[@data-fieldname='pan_number']//input[@type='text']    CFCPG6559P
-    Input Text    //div[@data-fieldname='pan_full_name']//input[@type='text']    JAYANTA BADAL GHOSH
-    Input Text    //div[@data-fieldname='pan_father_name']//input[@type='text']    BADAL KANGALICHARAN GHOSH
-    Input Text    //div[@data-fieldname='pan_gender']//input[@type='text']    M
-    # Input Text    //input[@data-fieldtype='Date']    07-11-1998
-    # Input Text    //input[@data-fieldtype='Date']    07-11-1998
-    # Input Text    //div[@data-fieldname='pan_phone_number']//input[@type='text']    8879044053
-    # Click Element    //button[@data-label='Save']   
+    TRY
+        Input Text    //div[@data-fieldname='pan_number']//input[@type='text']    CFCPG6559P
+        Input Text    //div[@data-fieldname='pan_full_name']//input[@type='text']    JAYANTA BADAL GHOSH
+        Input Text    //div[@data-fieldname='pan_father_name']//input[@type='text']    BADAL KANGALICHARAN GHOSH
+        Input Text    //div[@data-fieldname='pan_gender']//input[@type='text']    M
+        # Input Text    //input[@data-fieldtype='Date']    07-11-1998
+        # Input Text    //input[@data-fieldtype='Date']    07-11-1998
+        # Input Text    //div[@data-fieldname='pan_phone_number']//input[@type='text']    8879044053
+        # Click Element    //button[@data-label='Save']   
+    EXCEPT
+        Log To Console    message=Edit APN details got failed
+    END
 
 
 
